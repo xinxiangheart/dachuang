@@ -5,6 +5,10 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public float playermovespeed;
+    public float playerjumpspeed;
+    public bool isGround;
+    public Transform foot;
+    public LayerMask Ground;
     public Rigidbody2D playerRB;
     public Collider2D playerColl;
     public Animator playAnim;
@@ -19,6 +23,8 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         playerMove();
+        playerJump();
+        isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground);
     }
      
     void playerMove()
@@ -30,6 +36,24 @@ public class NewBehaviourScript : MonoBehaviour
         if (facenum != 0)
         {
             transform.localScale = new Vector3(3*facenum, transform.localScale.y, transform.localScale.z);
+        }
+    }
+    void playerJump()
+    {
+        if (Input.GetButtonDown("Jump")&&isGround)
+        {
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerjumpspeed);
+            playAnim.SetBool("jump", true);
+            playAnim.SetBool("jumpbegin", true);
+        }
+        if (isGround)
+        {
+            playAnim.SetBool("jump", false);
+        }
+        if (!isGround)
+        {
+            playAnim.SetBool("jump", true);
+            playAnim.SetBool("jumpbegin", false);
         }
     }
 }
