@@ -5758,16 +5758,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a66cf6b0cb22c46a2bf599c1429225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playermovespeed: 7
-  playerjumpspeed: 6
+  playermovespeed: 8
+  playerjumpspeed: 13
+  playerjumpcount: 1
+  playjumpmultiplier: 0
   isGround: 0
+  isCrouch: 0
+  presssCrouch: 0
   foot: {fileID: 685733198}
   Ground:
     serializedVersion: 2
     m_Bits: 64
   playerRB: {fileID: 0}
-  playerColl: {fileID: 0}
   playAnim: {fileID: 0}
+  playerColl: {fileID: 0}
+  playerOffsetVector: {x: 0, y: 0}
+  playerSizeVector: {x: 0, y: 0}
 --- !u!70 &1126350529
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5800,8 +5806,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0038921437, y: -0.009941539}
-  m_Size: {x: 0.17974572, y: 0.29634234}
+  m_Offset: {x: -0.0074173016, y: -0.0090602245}
+  m_Size: {x: 0.17269544, y: 0.29810497}
   m_Direction: 0
 --- !u!95 &1126350530
 Animator:
